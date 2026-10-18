@@ -4,12 +4,12 @@ This public repository is the corresponding-source offer location for **Web Vide
 
 ## Corresponding source package
 
-The local release candidate is prepared at the URL below. Before publishing the Chrome Web Store item, replace the Release asset with the current local archive and verify that its SHA-256 matches the value recorded here:
+Download the exact source-delivery archive from the immutable GitHub Release. The public asset has been replaced with the current local archive and verified against the hash recorded here:
 
 - [WebVideoDownloaderFlow-corresponding-source-1.0.31.zip](https://github.com/JohnWish1590/web-video-downloader-flow-source/releases/download/v1.0.31/WebVideoDownloaderFlow-corresponding-source-1.0.31.zip)
-- SHA-256: `8399d5018d9691cf57b3527c36cad7da16ac0484cdb4340e2a5c5740112034c5`
+- SHA-256: `0935b070914ea7f4e58e42065847f68c47cf04f60ef1511165ca9069f8fb0cb4`
 
-The archive contains the application source used by the runtime, recorded third-party source materials, build records, license notices, and the corresponding-source delivery record. It is not the Chrome Web Store upload package and it is not the private development workspace. The public Release asset is not final until the local and public hashes match.
+The archive contains the application source used by the runtime, recorded third-party source materials, build records, license notices, and the corresponding-source delivery record. It is not the Chrome Web Store upload package and it is not the private development workspace. The public Release asset matches the local archive and the accompanying `ARCHIVE-HASHES.json` record.
 
 ## Privacy policy
 
