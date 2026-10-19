@@ -13,6 +13,8 @@ The extension may process the following information to provide its visible downl
 - language/theme settings, short-lived task state, and temporary media metadata stored in Chrome storage;
 - a random client identifier, a random device identifier, a license key entered by the user, an authorization token, and a short download operation identifier when the optional access service is enabled.
 
+On TikTok and Douyin the packaged page script reads player data that the site already delivered to the page, in order to list the qualities the site itself offers. It does not sign requests, read cookies or account tokens, or bypass a login or paywall, and that page data is not sent to the developer.
+
 Page media discovery and download task processing are performed for the user-facing downloader feature. The extension does not build an analytics history, sell browsing activity, or send page content or downloaded media to the developer's authorization service.
 
 ## Optional authorization service
