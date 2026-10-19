@@ -70,9 +70,9 @@ Do not load two builds of this extension at the same time; they share in-page el
 Each release ships the exact source used by that runtime. Download the archive from the immutable GitHub Release:
 
 - [WebVideoDownloaderFlow-corresponding-source-1.1.7.zip](https://github.com/JohnWish1590/web-video-downloader-flow-source/releases/download/v1.1.7/WebVideoDownloaderFlow-corresponding-source-1.1.7.zip)
-- SHA-256: `93251178f87162562296f86e82a04f60ac60e288263ca2e2f16b708029c8c773`
+- SHA-256: `93251178f87162562296f86e82a04f60ac60e288263ca2e2f16b708029c8c773` — the published asset was downloaded back and matches this value.
 
-Every release also carries an `ARCHIVE-HASHES.json` record. The archive contains the application source used by the runtime, recorded third-party source materials, build records, license notices and the corresponding-source delivery record. It is not the Chrome Web Store upload package and it is not the private development workspace.
+Every release also carries an `ARCHIVE-HASHES.json` record. The archive embeds `README.md`, `CHANGELOG.md` and `PRIVACY.md` as of this version. The archive contains the application source used by the runtime, recorded third-party source materials, build records, license notices and the corresponding-source delivery record. It is not the Chrome Web Store upload package and it is not the private development workspace.
 
 Rebuilding from that archive is documented in `BUILD-FROM-SOURCE.md` inside it.
 
