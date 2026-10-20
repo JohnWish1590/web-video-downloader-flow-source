@@ -46,6 +46,17 @@ For TikTok and Douyin an empty quality list means the page has not fetched its d
 
 HLS, DASH and adaptive sources are muxed locally and saved as **MKV**. Direct MP4 sources are saved as **MP4**. Remuxing runs in an isolated worker from LibAV.js / FFmpeg built from the sources recorded in the source package; nothing is downloaded at runtime.
 
+## First run and your responsibility
+
+On first install the extension opens a notice that has to be acknowledged before any file is written. It covers what the extension reads, the free quota, and this:
+
+- **You start the download, and the download is your responsibility.** The extension only writes a file when you click; it does not decide who owns the content and does not obtain any permission for you.
+- Only download what you are entitled to save: your own work, content that is explicitly offered for download, or a use the law permits.
+- You are responsible for following the terms of service of the sites you visit and the copyright law that applies to you. Saving, sharing or republishing someone else's work without permission can infringe their rights.
+- The developer accepts no liability for the content you download or for how you use it.
+
+The same text is available again from the settings page at any time.
+
 ## What it does not do
 
 - It does not bypass DRM, paywalls, login restrictions or any access control.
@@ -70,7 +81,7 @@ Do not load two builds of this extension at the same time; they share in-page el
 Each release ships the exact source used by that runtime. Download the archive from the immutable GitHub Release:
 
 - [WebVideoDownloaderFlow-corresponding-source-1.1.7.zip](https://github.com/JohnWish1590/web-video-downloader-flow-source/releases/download/v1.1.7/WebVideoDownloaderFlow-corresponding-source-1.1.7.zip)
-- SHA-256: `93251178f87162562296f86e82a04f60ac60e288263ca2e2f16b708029c8c773` — the published asset was downloaded back and matches this value.
+- SHA-256: `c0493a7984e1a74e3d54710a9458605d73f4c7a08085ef5b2c6c3f730ca01a14` — the published asset was downloaded back and matches this value.
 
 Every release also carries an `ARCHIVE-HASHES.json` record. The archive embeds `README.md`, `CHANGELOG.md` and `PRIVACY.md` as of this version. The archive contains the application source used by the runtime, recorded third-party source materials, build records, license notices and the corresponding-source delivery record. It is not the Chrome Web Store upload package and it is not the private development workspace.
 

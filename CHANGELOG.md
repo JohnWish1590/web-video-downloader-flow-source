@@ -28,6 +28,11 @@ TikTok and Douyin quality lists, and the fixes found while wiring them up.
 - **Free-quota errors on the in-page button showed server text.** The TikTok/Douyin button now translates `FREE_LIMIT_REACHED`, `COOLDOWN`, `LICENSE_KEY_INVALID`, `DEVICE_LIMIT_REACHED` and the access-service failures the same way the panel does.
 - **The free-quota accounting could release a live download's reservation.** `releaseExpiredReservations` reset `reserved_count` to zero instead of subtracting only the reservations it expired, so sweeping one abandoned reservation also released every in-flight one — which allowed more than three concurrent downloads. It now subtracts exactly the rows it expired.
 
+### Added
+
+- **First-run notice before anything is downloaded.** Chrome Web Store expects a prominent disclosure before an extension handles page metadata, and the copyright point belongs in front of the user rather than buried in a policy. `welcome.html` opens on install and lists what the extension reads, the copyright and responsibility terms, and the free quota. Every path that writes a file — the offscreen executor and the direct Chrome download — refuses with `DISCLOSURE_REQUIRED` until the user ticks the box. Page inspection keeps working, so the panel still shows what it found.
+- The notice is reachable again from the settings page footer.
+
 ### Documented
 
 - Added `CHANGELOG.md` (this file) and rewrote the public README with the full feature matrix, the free/paid model, and the corresponding-source instructions.
@@ -36,7 +41,7 @@ TikTok and Douyin quality lists, and the fixes found while wiring them up.
 
 ### Verified
 
-- `npm run test:baseline` 17/17, `npm run test:replacement` 6/6, `npm run test:boundary` PASS (42 runtime files), `npm run test:generic-page` PASS, `npm run test:quota` PASS.
+- `npm run test:baseline` 18/18 (adds `first-run-disclosure`), `npm run test:replacement` 6/6, `npm run test:boundary` PASS (44 runtime files), `npm run test:generic-page` PASS, `npm run test:quota` PASS, `npm run test:disclosure` PASS.
 - Real TikTok page: 1,967,308 bytes downloaded, FFprobe confirms HEVC 720×1280 + AAC, 24.4 s, full decode.
 - Douyin: covered by the synthetic bridge test (two qualities listed, non-highest quality selected, byte count matches the served file). A real Douyin page still needs a manual check — headless Chrome hits the platform's captcha page, and bypassing it is not a goal.
 

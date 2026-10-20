@@ -27,6 +27,10 @@ The extension stores the returned authorization token and cached status locally 
 
 Stripe processes payment details on its own checkout page. The extension does not request or store card numbers, bank credentials, or other payment credentials. A user choosing manual WeChat payment may voluntarily email a payment screenshot and an address for delivery of a license key; those materials are used only to confirm the purchase and deliver the requested key.
 
+## First-run notice and user responsibility
+
+Before the extension writes any file, it shows a notice that must be acknowledged. The notice explains what the extension reads (listed above), the free quota, and that the user starts each download and is responsible for it: only content the user is entitled to save may be downloaded, the user must follow the terms of service of the sites they visit and the copyright law that applies to them, and the developer accepts no liability for downloaded content or its subsequent use. The acknowledgement is stored locally as a timestamp and is not sent anywhere.
+
 ## Sharing and limited use
 
 We do not sell user data, use it for targeted advertising, or use it to build user profiles. Data is handled only to provide, secure, maintain, and support the downloader and optional authorization feature. We do not share page content or downloaded media with third parties. Requests to the media host are made because the user explicitly selected a media download and are subject to that host's terms.
