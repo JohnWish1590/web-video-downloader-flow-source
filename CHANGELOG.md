@@ -22,6 +22,13 @@ The first-run notice no longer opens another tab when a download is refused befo
 
 - `npm run test:baseline` 18/18, `npm run test:replacement` 6/6, `npm run test:generic-page` PASS, `npm run test:boundary` PASS, and `npm run release:verify` PASS.
 
+### Released
+
+- Submitted to the Chrome Web Store for review on 2026-10-26, replacing the published 1.0.31 build. Automatic publication after approval is enabled.
+- The listing now declares in-app purchases instead of a free product, because a license is sold to remove the download cooldown.
+- The store description was rewritten for this version, and the reviewer instructions were rewritten to fit the 500 character limit and to mention the first-run notice.
+- Corresponding source published as GitHub Release `v1.1.9`, SHA-256 `84286eb890be3051eeaf04c4507eabd0f1090d6145b753a6d6b655938f1f3e27`, verified against the public asset.
+
 ---
 
 ## 1.1.8 — 2026-10-20
