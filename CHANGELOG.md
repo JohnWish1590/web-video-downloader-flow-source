@@ -9,6 +9,34 @@ Product model, unchanged since 1.1.0:
 
 ---
 
+## 1.1.9 — 2026-10-20
+
+The first-run notice no longer opens another tab when a download is refused before acknowledgment. The generic page download test now accepts the notice before checking that downloads do not open an intermediate window.
+
+### Fixed
+
+- Reuse the already-open first-run notice when a download is attempted before acknowledgment, including after the service worker restarts.
+- Added browser coverage that a refused download does not create another notice tab and that accepting the notice closes it before generic download checks.
+
+### Verified
+
+- `npm run test:baseline` 18/18, `npm run test:replacement` 6/6, `npm run test:generic-page` PASS, `npm run test:boundary` PASS, and `npm run release:verify` PASS.
+
+---
+
+## 1.1.8 — 2026-10-20
+
+Douyin and TikTok downloads are removed from the extension runtime.
+
+### Changed
+
+- Removed their page-script matches, player controls, bridge injection, media registration, panel entries, and download routes. The generic page script now excludes both sites, and the background clears old cached entries and refuses stale download requests.
+- Preserved the local 1.1.7 development implementation and probes under `research/retired-platform-support/1.1.7/` and in the corresponding-source archive only. This is a source snapshot, not a claim that every file matches the previously published archive. These materials are not included in the extension package or current test suite.
+- Updated the store listing, privacy wording, and reviewer instructions to match the supported runtime.
+- Added `npm run test:unsupported-platforms` to verify both sites produce no page control or downloadable media entry.
+
+---
+
 ## 1.1.7 — 2026-10-19
 
 TikTok and Douyin quality lists, and the fixes found while wiring them up.

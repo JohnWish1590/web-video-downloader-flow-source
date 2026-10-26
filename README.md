@@ -2,7 +2,7 @@
 
 A Chrome extension that finds video media on the page you are viewing, lets you pick a quality, and saves it to your own computer. This repository is the **corresponding-source offer location** for the extension and holds the public documentation, the privacy policy and the per-version source delivery archive.
 
-Current version: **1.1.7** · [Changelog](CHANGELOG.md) · [Privacy policy](PRIVACY.md)
+Current version: **1.1.9** · [Changelog](CHANGELOG.md) · [Privacy policy](PRIVACY.md)
 
 ## How it is priced
 
@@ -31,10 +31,6 @@ Current version: **1.1.7** · [Changelog](CHANGELOG.md) · [Privacy policy](PRIV
 | **Bilibili** | Complete quality list for the signed-in account, filled in from the page's own same-origin `playurl` result. Same-size `avc1`/`hvc1`/`av01` encodes collapse into one row. Sizes come from real probes. |
 | **X / Twitter** | Videos from posts already loaded on the page, with a download entry in the top-right corner of each post. The main video and comment videos are distinguished. |
 | **Weibo** | Videos from posts already loaded on the page, same top-right entry, main post first and comments collapsed by default. |
-| **TikTok** | Every resolution the platform handed the page in its own player state (`bitrateInfo`), with the separate music track muxed in so the file keeps its audio. |
-| **Douyin / 抖音** | Same idea, read from the detail response the page itself requested. |
-
-For TikTok and Douyin an empty quality list means the page has not fetched its data yet — the menu says so and offers a retry rather than inventing a single stream.
 
 ### HLS and DASH
 
@@ -78,10 +74,12 @@ Do not load two builds of this extension at the same time; they share in-page el
 
 ## Corresponding source
 
-Each release ships the exact source used by that runtime. Download the archive from the immutable GitHub Release:
+Each release ships the exact source used by that runtime. The latest published archive is v1.1.9, the version submitted to the Chrome Web Store:
 
-- [WebVideoDownloaderFlow-corresponding-source-1.1.7.zip](https://github.com/JohnWish1590/web-video-downloader-flow-source/releases/download/v1.1.7/WebVideoDownloaderFlow-corresponding-source-1.1.7.zip)
-- SHA-256: `c0493a7984e1a74e3d54710a9458605d73f4c7a08085ef5b2c6c3f730ca01a14` — the published asset was downloaded back and matches this value.
+- [WebVideoDownloaderFlow-corresponding-source-1.1.9.zip](https://github.com/JohnWish1590/web-video-downloader-flow-source/releases/download/v1.1.9/WebVideoDownloaderFlow-corresponding-source-1.1.9.zip)
+- SHA-256: `84286eb890be3051eeaf04c4507eabd0f1090d6145b753a6d6b655938f1f3e27` — the published asset was downloaded back and matches this value.
+
+Earlier archives stay available for the versions they were built for. v1.1.7 and earlier still contain the Douyin and TikTok implementation that was removed in 1.1.8.
 
 Every release also carries an `ARCHIVE-HASHES.json` record. The archive embeds `README.md`, `CHANGELOG.md` and `PRIVACY.md` as of this version. The archive contains the application source used by the runtime, recorded third-party source materials, build records, license notices and the corresponding-source delivery record. It is not the Chrome Web Store upload package and it is not the private development workspace.
 
