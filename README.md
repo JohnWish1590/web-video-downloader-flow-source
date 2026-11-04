@@ -1,16 +1,17 @@
 # Web Video Downloader Flow
 
-A Chrome extension that finds video media on the page you are viewing, lets you pick a quality, and saves it to your own computer. This repository is the **corresponding-source offer location** for the extension and holds the public documentation, the privacy policy and the per-version source delivery archive.
+A Chrome extension that finds video media on the page you are viewing, lets you pick a quality, and saves it to your own computer. It also saves the original photos from loaded X and Weibo posts. This repository is the **corresponding-source offer location** for the extension and holds the public documentation, the privacy policy and the per-version source delivery archive.
 
-Current version: **1.1.9** · [Changelog](CHANGELOG.md) · [Privacy policy](PRIVACY.md)
+Current corresponding source release: **1.1.18** · Latest published source: **1.1.18** · [Changelog](CHANGELOG.md) · [Privacy policy](PRIVACY.md)
 
 ## How it is priced
 
 - **Free to install. No account required.**
-- An unregistered user gets **3 completed downloads**. After the third one, a **1 hour countdown** starts; when it reaches zero the counter resets and you get 3 more.
+- An unregistered user gets **3 completed video downloads**. After the third one, a **1 hour countdown** starts; when it reaches zero the counter resets and you get 3 more.
+- **X and Weibo photo downloads are free and do not use video quota**, including during a video cooldown.
 - **Registration is optional.** It removes the countdown entirely. One-time payment: **$6.99** through Stripe, or **¥28** through WeChat. Prices are shown in the extension's settings page and are the authoritative values.
-- The counter is enforced by the license service, not by the extension alone, so it is not something you can reset by reinstalling. A download is only counted when it actually completes; a cancelled download does not consume quota.
-- The extension works without ever contacting the license service if you never start a download — media detection happens locally in your browser.
+- The license service enforces the free quota against a random client ID stored locally by the extension. Clearing extension data or reinstalling may create a new ID and reset the quota; cross-reinstall prevention is not promised. A download counts only when it completes; cancelling a download does not consume quota.
+- Media detection happens locally in your browser. Photo downloads do not contact the license service.
 
 ## What it does
 
@@ -29,8 +30,8 @@ Current version: **1.1.9** · [Changelog](CHANGELOG.md) · [Privacy policy](PRIV
 | --- | --- |
 | **YouTube** | Adaptive streams via the player's own format list, with the real title, channel and thumbnail taken from the player response; separate video and audio are muxed into one file. |
 | **Bilibili** | Complete quality list for the signed-in account, filled in from the page's own same-origin `playurl` result. Same-size `avc1`/`hvc1`/`av01` encodes collapse into one row. Sizes come from real probes. |
-| **X / Twitter** | Videos from posts already loaded on the page, with a download entry in the top-right corner of each post. The main video and comment videos are distinguished. |
-| **Weibo** | Videos from posts already loaded on the page, same top-right entry, main post first and comments collapsed by default. |
+| **X / Twitter** | Videos from posts already loaded on the page, with a download entry in the top-right corner of each post. The main video and comment videos are distinguished. Post photos and the foreground photo viewer have a one-click original-size save button. One text entry above the photo group saves the whole post as a ZIP; single-photo and batch photo downloads are free. |
+| **Weibo** | Videos from posts already loaded on the page, same top-right entry, main post first and comments collapsed by default. Post photos use the same hover single-photo button and one text batch entry above the photo group as X. |
 
 ### HLS and DASH
 
@@ -41,6 +42,8 @@ Current version: **1.1.9** · [Changelog](CHANGELOG.md) · [Privacy policy](PRIV
 ### Output format
 
 HLS, DASH and adaptive sources are muxed locally and saved as **MKV**. Direct MP4 sources are saved as **MP4**. Remuxing runs in an isolated worker from LibAV.js / FFmpeg built from the sources recorded in the source package; nothing is downloaded at runtime.
+
+X and Weibo photos retain the image format and original response bytes. “Original” means the largest version the platform currently provides, not a guarantee of the author's untouched camera file. An unavailable original is reported instead of silently saving a preview. Single photos use the normal Chrome download path; a post's batch entry creates one ZIP and asks for the save location once. The ZIP name uses the author, publication date and the first 12 characters of the post text; missing dates are omitted and empty text becomes `图片`. Video downloads keep their automatic filenames and normal save behavior.
 
 ## First run and your responsibility
 
@@ -64,22 +67,22 @@ Save only media you have the right to save. Site structure, sign-in state and ne
 
 ## Install
 
-Chrome Web Store listing: *coming for this version*. Until it is published, load the released package as an unpacked extension:
+Chrome Web Store listing: the public source corresponds to v1.1.18. Until the store listing is updated, load the fixed local folder as an unpacked extension:
 
 1. Open `chrome://extensions` and enable Developer mode.
-2. Choose **Load unpacked** and select the unpacked extension directory from the release archive.
+2. Choose **Load unpacked** and select the fixed local `chrome-extension/` folder from the development workspace.
 3. Reload the page you want to download from.
 
 Do not load two builds of this extension at the same time; they share in-page element names and their buttons may collide.
 
 ## Corresponding source
 
-Each release ships the exact source used by that runtime. The latest published archive is v1.1.9, the version submitted to the Chrome Web Store:
+Each release ships the exact source used by that runtime. The latest published archive is v1.1.18:
 
-- [WebVideoDownloaderFlow-corresponding-source-1.1.9.zip](https://github.com/JohnWish1590/web-video-downloader-flow-source/releases/download/v1.1.9/WebVideoDownloaderFlow-corresponding-source-1.1.9.zip)
-- SHA-256: `84286eb890be3051eeaf04c4507eabd0f1090d6145b753a6d6b655938f1f3e27` — the published asset was downloaded back and matches this value.
+- [WebVideoDownloaderFlow-corresponding-source-1.1.18.zip](https://github.com/JohnWish1590/web-video-downloader-flow-source/releases/download/v1.1.18/WebVideoDownloaderFlow-corresponding-source-1.1.18.zip)
+- SHA-256: recorded in the release asset `ARCHIVE-HASHES.json` and verified after downloading the public asset.
 
-Earlier archives stay available for the versions they were built for. v1.1.7 and earlier still contain the Douyin and TikTok implementation that was removed in 1.1.8.
+Earlier archives stay available for the versions they were built for. v1.1.7 and earlier still contain the Douyin and TikTok implementation that was removed in 1.1.8. The v1.1.18 source archive is the corresponding-source snapshot for the current runtime and includes the recorded archive hashes.
 
 Every release also carries an `ARCHIVE-HASHES.json` record. The archive embeds `README.md`, `CHANGELOG.md` and `PRIVACY.md` as of this version. The archive contains the application source used by the runtime, recorded third-party source materials, build records, license notices and the corresponding-source delivery record. It is not the Chrome Web Store upload package and it is not the private development workspace.
 
