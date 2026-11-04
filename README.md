@@ -67,7 +67,7 @@ Save only media you have the right to save. Site structure, sign-in state and ne
 
 ## Install
 
-Chrome Web Store listing: the public source corresponds to v1.1.18. Until the store listing is updated, load the fixed local folder as an unpacked extension:
+Chrome Web Store listing: v1.1.18 has been uploaded and submitted for review; the current store status is pending review. Until approval, load the fixed local folder as an unpacked extension:
 
 1. Open `chrome://extensions` and enable Developer mode.
 2. Choose **Load unpacked** and select the fixed local `chrome-extension/` folder from the development workspace.
