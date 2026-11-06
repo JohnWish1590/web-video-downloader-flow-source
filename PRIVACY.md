@@ -1,6 +1,6 @@
 # Web Video Downloader Flow Privacy Policy
 
-Effective date: 2026-10-20
+Effective date: 2026-11-06
 
 Web Video Downloader Flow helps a user discover video media on the webpage they are viewing, choose an available quality, and save media that the user is authorized to save. This policy describes the extension and its optional license service.
 
@@ -13,7 +13,7 @@ The extension may process the following information to provide its visible downl
 - language/theme settings, short-lived task state, and temporary media metadata stored in Chrome storage;
 - a random client identifier, a random device identifier, a license key entered by the user, an authorization token, and a short download operation identifier when the optional access service is enabled.
 
-The extension does not inject page scripts or register downloadable media on TikTok or Douyin pages.
+YouTube downloads are unsupported, including Shorts, embedded players and media CDN sources. YouTube page scripts are excluded and the background rejects these sources and stored task retries. TikTok and Douyin remain unsupported. X/Weibo photo URLs and post metadata are processed locally for original-photo saving and ZIP names.
 
 Page media discovery and download task processing are performed for the user-facing downloader feature. The extension does not build an analytics history, sell browsing activity, or send page content or downloaded media to the developer's authorization service.
 
@@ -41,7 +41,7 @@ Data sent to the optional authorization service is sent over HTTPS. Secrets used
 
 ## User choices and contact
 
-The extension can be used without registration. Users may avoid the optional license service and may remove the extension at any time. For privacy questions or a request about server-side license records, contact `cheung.cn@gmail.com` and include only the information needed to locate the request.
+The extension can be used without registration. Video downloads contact the license service to enforce quota, including without registration. Photo downloads do not use quota or contact that service. Users may remove the extension at any time. For privacy questions or a request about server-side license records, contact `cheung.cn@gmail.com` and include only the information needed to locate the request.
 
 ## English summary
 
