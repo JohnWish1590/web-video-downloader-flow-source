@@ -2,7 +2,7 @@
 
 A Chrome extension that finds video media on the page you are viewing, lets you pick a quality, and saves it to your own computer. It also saves the original photos from loaded X and Weibo posts. This repository is the **corresponding-source offer location** for the extension and holds the public documentation, the privacy policy and the per-version source delivery archive.
 
-Current corresponding source release: **1.1.23** · Latest published source: **1.1.23** · [Changelog](CHANGELOG.md) · [Privacy policy](PRIVACY.md)
+Current corresponding source release: **1.1.24** · Previous published source: **1.1.23** · [Changelog](CHANGELOG.md) · [Privacy policy](PRIVACY.md)
 
 ## How it is priced
 
@@ -28,22 +28,14 @@ Current corresponding source release: **1.1.23** · Latest published source: **1
 
 | Platform | What you get |
 | --- | --- |
-| **YouTube** | Adaptive streams via the player's own format list, with the real title, channel and thumbnail taken from the player response; separate video and audio are muxed into one file. |
+| **YouTube** | Not supported: no page controls or downloads, including Shorts, embedded players and media CDN sources. |
 | **Bilibili** | Complete quality list for the signed-in account, filled in from the page's own same-origin `playurl` result. Same-size `avc1`/`hvc1`/`av01` encodes collapse into one row. Sizes come from real probes. |
 | **X / Twitter** | Videos from posts already loaded on the page, with a download entry in the top-right corner of each post. The main video and comment videos are distinguished. Post photos and the foreground photo viewer have a one-click original-size save button. One text entry above the photo group saves the whole post as a ZIP; single-photo and batch photo downloads are free. |
 | **Weibo** | Videos from posts already loaded on the page, same top-right entry, main post first and comments collapsed by default. Post photos use the same hover single-photo button and one text batch entry above the photo group as X. |
 
-### Recent 1.1.19–1.1.23 fixes (local candidate)
+### 1.1.24 policy remediation
 
-These changes are implemented and covered by the local regression suite. The corresponding-source archive is public as GitHub Release `v1.1.23`; the Chrome Web Store upload is a separate pending step:
-
-- Bilibili and YouTube video controls are hidden until the pointer enters the video/player area; the quality menu and keyboard focus keep the control usable.
-- Bilibili home-page cards can be opened from their own thumbnail and resolve that card's BV video only when clicked; the native “watch later” control is kept separate.
-- YouTube Shorts keeps the control inside the visible cropped video area instead of placing it outside the card where it disappears when approached.
-- YouTube home-page thumbnail and Shorts cards can open their own quality menu without requiring a playing `<video>` element; recycled cards and unavailable sources are rejected instead of using another card's media.
-- YouTube quality, audio, duration and size records are isolated by video ID. A higher-resolution file is not removed merely because its byte size is smaller; the displayed size belongs to that video's selected stream and audio track.
-
-The evidence and known limitations are recorded in `CHANGELOG.md`, `MIGRATION-PROGRESS.md` and `build-records/youtube-quality-1.1.23.json`.
+Removed YouTube player extraction and page/card downloads. Background checks reject YouTube sources and stored task retries. Historical 1.1.23 is separately preserved and is not the current store candidate. Bilibili and X/Weibo features remain.
 
 ### HLS and DASH
 
@@ -79,7 +71,7 @@ Save only media you have the right to save. Site structure, sign-in state and ne
 
 ## Install
 
-The 1.1.23 corresponding-source release is public, but the extension package has not yet been uploaded to the Chrome Web Store. Before submitting it, re-check the dashboard's production/review status and keep the package/hash records together. Until then, load the fixed local folder as an unpacked extension:
+1.1.24 is the remediation candidate after the 1.1.23 Blue Zinc rejection. Source publication and store approval are separate. For local testing, load the fixed directory:
 
 1. Open `chrome://extensions` and enable Developer mode.
 2. Choose **Load unpacked** and select the fixed local `chrome-extension/` folder from the development workspace.
@@ -89,12 +81,12 @@ Do not load two builds of this extension at the same time; they share in-page el
 
 ## Corresponding source
 
-Each release ships the exact source used by that runtime. The latest published archive is v1.1.23:
+Each release ships the exact source used by that runtime. The corresponding source for this candidate is v1.1.24; links become available on publication:
 
-- [WebVideoDownloaderFlow-corresponding-source-1.1.23.zip](https://github.com/JohnWish1590/web-video-downloader-flow-source/releases/download/v1.1.23/WebVideoDownloaderFlow-corresponding-source-1.1.23.zip)
+- [WebVideoDownloaderFlow-corresponding-source-1.1.24.zip](https://github.com/JohnWish1590/web-video-downloader-flow-source/releases/download/v1.1.24/WebVideoDownloaderFlow-corresponding-source-1.1.24.zip)
 - SHA-256: recorded in the release asset `ARCHIVE-HASHES.json` and verified after downloading the public asset.
 
-Earlier archives stay available for the versions they were built for. v1.1.7 and earlier still contain the Douyin and TikTok implementation that was removed in 1.1.8. The v1.1.23 source archive is the corresponding-source snapshot for the current runtime and includes the recorded archive hashes.
+Historical v1.1.23 contains YouTube functionality removed in 1.1.24 and is not the current store build. Earlier archives stay available for the versions they were built for. v1.1.7 and earlier still contain the Douyin and TikTok implementation that was removed in 1.1.8. The v1.1.24 source archive is the corresponding-source snapshot for the current runtime and includes the recorded archive hashes.
 
 Every release also carries an `ARCHIVE-HASHES.json` record. The archive embeds `README.md`, `CHANGELOG.md` and `PRIVACY.md` as of this version. The archive contains the application source used by the runtime, recorded third-party source materials, build records, license notices and the corresponding-source delivery record. It is not the Chrome Web Store upload package and it is not the private development workspace.
 
