@@ -1,8 +1,8 @@
 # Web Video Downloader Flow
 
-A Chrome extension that finds video media on the page you are viewing, lets you pick a quality, and saves it to your own computer. It also saves the original photos from loaded X and Weibo posts. This repository is the **corresponding-source offer location** for the extension and holds the public documentation, the privacy policy and the per-version source delivery archive.
+A Chrome extension that saves ordinary, unencrypted video and audio media already exposed by supported pages. It lets you pick an observed quality and saves the result to your own computer. It also saves the original photos from loaded X and Weibo posts. This repository is the **corresponding-source offer location** for the extension and holds the public documentation, the privacy policy and the per-version source delivery archive.
 
-Current corresponding source release: **1.1.24** · Previous published source: **1.1.23** · [Changelog](CHANGELOG.md) · [Privacy policy](PRIVACY.md)
+Current corresponding source release: **1.1.24** · [Changelog](CHANGELOG.md) · [Privacy policy](PRIVACY.md)
 
 ## How it is priced
 
@@ -15,9 +15,9 @@ Current corresponding source release: **1.1.24** · Previous published source: *
 
 ## What it does
 
-### Works on any page
+### Supported media
 
-- Detects media elements and media requests on the page you are on, for ordinary HTML5 video and audio.
+- Detects ordinary HTML5 video and audio that supported pages expose to the browser. It does not unlock media that a site does not make available.
 - Lists the qualities that were actually observed, with real resolution and size when the server provides them. Missing data is shown as unknown rather than guessed.
 - Saves directly to Chrome's download location through the extension's own offscreen executor — no intermediate save dialog, no half-written file left behind if the download fails or is cancelled.
 - Pause, resume and cancel from the panel; task state survives closing the popup and reloading the page.
@@ -33,9 +33,9 @@ Current corresponding source release: **1.1.24** · Previous published source: *
 | **X / Twitter** | Videos from posts already loaded on the page, with a download entry in the top-right corner of each post. The main video and comment videos are distinguished. Post photos and the foreground photo viewer have a one-click original-size save button. One text entry above the photo group saves the whole post as a ZIP; single-photo and batch photo downloads are free. |
 | **Weibo** | Videos from posts already loaded on the page, same top-right entry, main post first and comments collapsed by default. Post photos use the same hover single-photo button and one text batch entry above the photo group as X. |
 
-### 1.1.24 policy remediation
+### Current platform boundary
 
-Removed YouTube player extraction and page/card downloads. Background checks reject YouTube sources and stored task retries. Historical 1.1.23 is separately preserved and is not the current store candidate. Bilibili and X/Weibo features remain.
+YouTube controls and downloads are not part of the current public build. Bilibili and X/Weibo features remain. The extension does not use this public build to bypass site access controls or retrieve media that the page does not expose.
 
 ### HLS and DASH
 
@@ -71,7 +71,7 @@ Save only media you have the right to save. Site structure, sign-in state and ne
 
 ## Install
 
-1.1.24 is the remediation candidate after the 1.1.23 Blue Zinc rejection. Source publication and store approval are separate. For local testing, load the fixed directory:
+For local testing, load the fixed directory. Source publication and store approval are separate:
 
 1. Open `chrome://extensions` and enable Developer mode.
 2. Choose **Load unpacked** and select the fixed local `chrome-extension/` folder from the development workspace.
@@ -86,7 +86,7 @@ Each release ships the exact source used by that runtime. The corresponding sour
 - [WebVideoDownloaderFlow-corresponding-source-1.1.24.zip](https://github.com/JohnWish1590/web-video-downloader-flow-source/releases/download/v1.1.24/WebVideoDownloaderFlow-corresponding-source-1.1.24.zip)
 - SHA-256: recorded in the release asset `ARCHIVE-HASHES.json` and verified after downloading the public asset.
 
-Historical v1.1.23 contains YouTube functionality removed in 1.1.24 and is not the current store build. Earlier archives stay available for the versions they were built for. v1.1.7 and earlier still contain the Douyin and TikTok implementation that was removed in 1.1.8. The v1.1.24 source archive is the corresponding-source snapshot for the current runtime and includes the recorded archive hashes.
+This README describes the current public release only. Retired private development builds are not supported, are not installation packages, and are not part of the current store build. The v1.1.24 source archive is the corresponding-source snapshot for the current public runtime and includes the recorded archive hashes.
 
 Every release also carries an `ARCHIVE-HASHES.json` record. The archive embeds `README.md`, `CHANGELOG.md` and `PRIVACY.md` as of this version. The archive contains the application source used by the runtime, recorded third-party source materials, build records, license notices and the corresponding-source delivery record. It is not the Chrome Web Store upload package and it is not the private development workspace.
 
