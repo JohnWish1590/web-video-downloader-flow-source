@@ -2,7 +2,7 @@
 
 A Chrome extension that saves ordinary, unencrypted video and audio media already exposed by supported pages. It lets you pick an observed quality and saves the result to your own computer. It also saves the original photos from loaded X and Weibo posts. This repository is the **corresponding-source offer location** for the extension and holds the public documentation, the privacy policy and the per-version source delivery archive.
 
-Current corresponding source release: **1.1.24** · [Changelog](CHANGELOG.md) · [Privacy policy](PRIVACY.md)
+Corresponding source archive for this release: **1.1.27** · [Changelog](CHANGELOG.md) · [Privacy policy](PRIVACY.md)
 
 ## How it is priced
 
@@ -47,7 +47,7 @@ YouTube controls and downloads are not part of the current public build. Bilibil
 
 HLS, DASH and adaptive sources are muxed locally and saved as **MKV**. Direct MP4 sources are saved as **MP4**. Remuxing runs in an isolated worker from LibAV.js / FFmpeg built from the sources recorded in the source package; nothing is downloaded at runtime.
 
-X and Weibo photos retain the image format and original response bytes. “Original” means the largest version the platform currently provides, not a guarantee of the author's untouched camera file. An unavailable original is reported instead of silently saving a preview. Single photos use the normal Chrome download path; a post's batch entry creates one ZIP and asks for the save location once. The ZIP name uses the author, publication date and the first 12 characters of the post text; missing dates are omitted and empty text becomes `图片`. Video downloads keep their automatic filenames and normal save behavior.
+X and Weibo photos retain the image format and original response bytes. “Original” means the largest version the platform currently provides, not a guarantee of the author's untouched camera file. An unavailable original is reported instead of silently saving a preview. Photos can be saved to a folder selected in settings for each platform; without a selected folder, the normal Chrome download flow is used. A post's batch entry creates one ZIP. The ZIP name uses the author, publication date and the first 12 characters of the post text; missing dates are omitted and empty text becomes `图片`. Video downloads keep their automatic filenames and normal save behavior.
 
 ## First run and your responsibility
 
@@ -81,12 +81,12 @@ Do not load two builds of this extension at the same time; they share in-page el
 
 ## Corresponding source
 
-Each release ships the exact source used by that runtime. The corresponding source for this candidate is v1.1.24; links become available on publication:
+The corresponding-source archive for version 1.1.27 is linked below. Source publication and Chrome Web Store approval are separate:
 
-- [WebVideoDownloaderFlow-corresponding-source-1.1.24.zip](https://github.com/JohnWish1590/web-video-downloader-flow-source/releases/download/v1.1.24/WebVideoDownloaderFlow-corresponding-source-1.1.24.zip)
+- [WebVideoDownloaderFlow-corresponding-source-1.1.27.zip](https://github.com/JohnWish1590/web-video-downloader-flow-source/releases/download/v1.1.27/WebVideoDownloaderFlow-corresponding-source-1.1.27.zip)
 - SHA-256: recorded in the release asset `ARCHIVE-HASHES.json` and verified after downloading the public asset.
 
-This README describes the current public release only. Retired private development builds are not supported, are not installation packages, and are not part of the current store build. The v1.1.24 source archive is the corresponding-source snapshot for the current public runtime and includes the recorded archive hashes.
+The v1.1.27 source archive is the corresponding-source snapshot for the v1.1.27 runtime. Archive hashes are provided as a separate release asset.
 
 Every release also carries an `ARCHIVE-HASHES.json` record. The archive embeds `README.md`, `CHANGELOG.md` and `PRIVACY.md` as of this version. The archive contains the application source used by the runtime, recorded third-party source materials, build records, license notices and the corresponding-source delivery record. It is not the Chrome Web Store upload package and it is not the private development workspace.
 
